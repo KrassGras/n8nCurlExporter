@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "n8n cURL Export",
+  "version": "1.0.0",
+  "description": "Export runnable cURL commands from n8n HTTP Request nodes",
+  "permissions": [
+    "storage",
+    "clipboardWrite"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "n8n cURL Export Settings"
+  }
+}
