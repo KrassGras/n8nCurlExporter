@@ -15,9 +15,11 @@ async function hasRecentExecution(workflowId) {
 }
 
 async function fetchWorkflowData(workflowId, origin) {
-  const res = await fetch(`${origin}/rest/workflows/${workflowId}`, {
-    headers: { Accept: 'application/json' },
-    credentials: 'include',
+  const { apiKey } = await chrome.storage.sync.get('apiKey');
+  if (!apiKey) throw new Error('NO_API_KEY');
+
+  const res = await fetch(`${origin}/api/v1/workflows/${workflowId}`, {
+    headers: { 'X-N8N-API-KEY': apiKey, Accept: 'application/json' },
   });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   const json = await res.json();

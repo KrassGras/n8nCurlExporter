@@ -60,8 +60,12 @@ async function handleShowReferences() {
   let workflow;
   try {
     workflow = await fetchWorkflowData(workflowId, location.origin);
-  } catch {
-    showToast('Could not load workflow data.', true);
+  } catch (err) {
+    if (err.message === 'NO_API_KEY') {
+      showToast('Set your n8n API key in the extension popup first.', true);
+    } else {
+      showToast('Could not load workflow data.', true);
+    }
     return;
   }
 
