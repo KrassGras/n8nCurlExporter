@@ -7,3 +7,14 @@ to other nodes (`$('NodeName')`, `$node["NodeName"]`, `$items('NodeName')`),
 then shows which nodes reference which — as a sortable list or a graph. Handy
 before pulling a piece of a workflow out into a sub-workflow: check who else
 references those nodes first.
+
+## Setup
+
+```
+npm install
+npm run build
+```
+
+`npm install` installs the dependencies. `npm run build` bundles the source files into `n8nCurlExporter/content.js`, which is required for the extension to work in the browser.
+
+Then load the `n8nCurlExporter/` folder as an unpacked extension in Chrome (`chrome://extensions` → Developer mode → Load unpacked).
