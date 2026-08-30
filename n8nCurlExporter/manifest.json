@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "n8n cURL Export",
-  "version": "1.0.0",
-  "description": "Export runnable cURL commands from n8n HTTP Request nodes",
+  "version": "1.1.0",
+  "description": "Export runnable cURL commands from n8n HTTP Request nodes and visualize node-to-node expression references",
   "permissions": [
     "storage",
     "clipboardWrite"
